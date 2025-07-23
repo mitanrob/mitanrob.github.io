@@ -16,9 +16,30 @@
             color: #d1d5db; /* text-gray-300 */
         }
         .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(17, 24, 39, 0.6); /* Darker glass for better readability */
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #home {
+            position: relative;
+            overflow: hidden; /* Ensures canvas doesn't spill out */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #code-animation-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            filter: blur(1.5px); /* Adds a blur effect to the canvas */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -47,19 +68,22 @@
         </div>
     </header>
 
-    <main class="pt-24">
+    <main>
         <!-- Hero Section -->
-        <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Robin Mitan</h1>
-                <p class="text-xl md:text-2xl text-cyan-400 mb-8">Junior C++ Developer & Information Security Enthusiast</p>
-                <div class="flex justify-center items-center space-x-6">
-                    <a href="https://linkedin.com/in/robin-mitan/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-                        <i data-lucide="linkedin" class="w-8 h-8"></i>
-                    </a>
-                    <a href="https://github.com/mitanrob" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
-                        <i data-lucide="github" class="w-8 h-8"></i>
-                    </a>
+        <section id="home" class="px-6 py-32 md:py-40 text-center">
+            <canvas id="code-animation-canvas"></canvas>
+            <div class="hero-content max-w-4xl mx-auto">
+                <div class="glass-effect rounded-xl p-8 md:p-12">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Robin Mitan</h1>
+                    <p class="text-xl md:text-2xl text-cyan-400 mb-8">Junior C++ Developer & Information Security Enthusiast</p>
+                    <div class="flex justify-center items-center space-x-6">
+                        <a href="https://linkedin.com/in/robin-mitan/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        </a>
+                        <a href="https://github.com/mitanrob" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i data-lucide="github" class="w-8 h-8"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -96,7 +120,6 @@
                 <h2 class="text-3xl font-bold text-white text-center mb-12">Technical Skills</h2>
                 <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Programming Languages -->
                     <div class="glass-effect rounded-lg p-6">
                         <div class="flex items-center mb-4">
                             <i data-lucide="code-2" class="w-8 h-8 text-cyan-400 mr-4"></i>
@@ -108,8 +131,6 @@
                             <li><span class="font-semibold text-cyan-300">Fluent:</span> JavaScript</li>
                         </ul>
                     </div>
-
-                    <!-- Tools & Technologies -->
                     <div class="glass-effect rounded-lg p-6">
                         <div class="flex items-center mb-4">
                             <i data-lucide="terminal-square" class="w-8 h-8 text-cyan-400 mr-4"></i>
@@ -122,8 +143,6 @@
                              <li>PostgreSQL, MySQL</li>
                         </ul>
                     </div>
-
-                    <!-- Cybersecurity -->
                     <div class="glass-effect rounded-lg p-6">
                         <div class="flex items-center mb-4">
                             <i data-lucide="shield-check" class="w-8 h-8 text-cyan-400 mr-4"></i>
@@ -145,8 +164,6 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-white text-center mb-12">Projects & Experience</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Project 1: Pen Test -->
                     <div class="glass-effect rounded-lg p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Penetration Test of CTU's Web App</h3>
                         <p class="text-cyan-400 text-sm mb-4 font-medium">Professional Experience</p>
@@ -161,8 +178,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Project 2: IoT Station -->
                     <div class="glass-effect rounded-lg p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">IoT Air Quality Monitoring Station</h3>
                         <p class="text-cyan-400 text-sm mb-4 font-medium">Personal Project</p>
@@ -180,8 +195,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <!-- Project 3: Time Utility -->
                     <div class="glass-effect rounded-lg p-6 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Windows Time Query Utility</h3>
                         <p class="text-cyan-400 text-sm mb-4 font-medium">Personal Project</p>
@@ -196,7 +209,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -240,13 +252,162 @@
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Close mobile menu when a link is clicked
         const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
         for (let link of mobileMenuLinks) {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         }
+
+        // --- C++ Code Typing Animation ---
+        const canvas = document.getElementById('code-animation-canvas');
+        const ctx = canvas.getContext('2d');
+
+        const codeSnippet = [
+            "class RandomizedSet {",
+            "public:",
+            "    vector<int> vec;",
+            "    unordered_map<int, int> map;",
+            "    RandomizedSet() : vec({}), map({}) {};",
+            "    bool insert(int val) {",
+            "        if(map.contains(val))",
+            "            return false;",
+            "        vec.push_back(val);",
+            "        map[val] = (int) vec.size() - 1;",
+            "        return true;",
+            "    }",
+            "    bool remove(int val) {",
+            "        if(map.contains(val)){",
+            "            int index = map[val];",
+            "            vec[index] = vec.back();",
+            "            map[vec.back()] = index;",
+            "            vec.pop_back();",
+            "            map.erase(val);",
+            "            return true;",
+            "        }",
+            "        return false;",
+            "    }",
+            "    int getRandom() {",
+            "        int index = rand() % vec.size();",
+            "        return vec[index];",
+            "    }",
+            "};"
+        ];
+        
+        // --- Syntax Highlighting Logic ---
+        const colors = {
+            keyword: '#0ea5e9',   // sky-500
+            type: '#facc15',      // yellow-400
+            function: '#a78bfa',  // violet-400
+            variable: '#d1d5db',  // gray-300
+            default: '#67e8f9',   // cyan-300
+            punctuation: '#6b7280' // gray-500
+        };
+
+        const keywords = new Set(['class', 'public', 'bool', 'int', 'if', 'return', 'true', 'false']);
+        const types = new Set(['vector', 'unordered_map', 'RandomizedSet']);
+        const functions = new Set(['insert', 'remove', 'getRandom', 'contains', 'push_back', 'back', 'pop_back', 'erase', 'size']);
+
+        function tokenizeAndDraw(line, x, y) {
+            const tokens = line.split(/(\s+|\b|(?<=[(){};:,<>&%])|(?=[(){};:,<>&%]))/);
+            let currentX = x;
+            
+            tokens.forEach(token => {
+                if (keywords.has(token)) {
+                    ctx.fillStyle = colors.keyword;
+                } else if (types.has(token)) {
+                    ctx.fillStyle = colors.type;
+                } else if (functions.has(token)) {
+                    ctx.fillStyle = colors.function;
+                } else if (/[(){};:,<>&%]/.test(token)) {
+                    ctx.fillStyle = colors.punctuation;
+                } else if (!isNaN(parseFloat(token))) {
+                     ctx.fillStyle = colors.function; // Use function color for numbers
+                }
+                else {
+                    ctx.fillStyle = colors.default;
+                }
+                ctx.fillText(token, currentX, y);
+                currentX += ctx.measureText(token).width;
+            });
+        }
+
+
+        const fontSize = 16;
+        const lineHeight = 22;
+        let currentLine = 0;
+        let currentChar = 0;
+        let typingSpeed = 2;
+        let animationFrameId;
+        let restartTimeout;
+
+        function resizeCanvas() {
+            const homeSection = document.getElementById('home');
+            canvas.width = homeSection.offsetWidth;
+            canvas.height = homeSection.offsetHeight;
+            ctx.font = `${fontSize}px monospace`;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(17, 24, 39, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            let y = 30;
+            for (let i = 0; i < currentLine; i++) {
+                tokenizeAndDraw(codeSnippet[i], 20, y);
+                y += lineHeight;
+            }
+
+            if (currentLine < codeSnippet.length) {
+                const line = codeSnippet[currentLine];
+                const textToDraw = line.substring(0, currentChar);
+                tokenizeAndDraw(textToDraw, 20, y);
+            }
+        }
+
+        function updateTyping() {
+            if (currentLine >= codeSnippet.length) {
+                if (!restartTimeout) {
+                     restartTimeout = setTimeout(() => {
+                        currentLine = 0;
+                        currentChar = 0;
+                        restartTimeout = null; // Reset timeout after it has run
+                    }, 3000);
+                }
+                return;
+            }
+
+            const line = codeSnippet[currentLine];
+            currentChar += typingSpeed;
+
+            if (currentChar > line.length) {
+                currentChar = line.length;
+                currentLine++;
+                currentChar = 0;
+            }
+        }
+
+        function animate() {
+            updateTyping();
+            draw();
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+             if(animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+             }
+             if(restartTimeout) {
+                clearTimeout(restartTimeout);
+                restartTimeout = null;
+             }
+             resizeCanvas();
+             animate();
+        });
+        
+        resizeCanvas();
+        animate();
+
     </script>
 </body>
 </html>
