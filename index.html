@@ -1,10 +1,252 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<title>Mitan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Mitan - C++ Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-<h1>Not available</h1>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white">Robin Mitan</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-cyan-400 transition-colors duration-300">About</a>
+                <a href="#skills" class="hover:text-cyan-400 transition-colors duration-300">Skills</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <a href="#about" class="block py-2 px-6 text-sm hover:bg-gray-700">About</a>
+            <a href="#skills" class="block py-2 px-6 text-sm hover:bg-gray-700">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-sm hover:bg-gray-700">Projects</a>
+            <a href="#contact" class="block py-2 px-6 text-sm hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
 
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Robin Mitan</h1>
+                <p class="text-xl md:text-2xl text-cyan-400 mb-8">Junior C++ Developer & Information Security Enthusiast</p>
+                <div class="flex justify-center items-center space-x-6">
+                    <a href="https://linkedin.com/in/robin-mitan/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                    </a>
+                    <a href="https://github.com/mitanrob" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i data-lucide="github" class="w-8 h-8"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-2/3">
+                        <h2 class="text-3xl font-bold text-white mb-4">About Me</h2>
+                        <p class="mb-4">
+                            I'm a C++ Developer specializing in modern C++ (20/23) with a strong command of the STL, and over two years of experience developing for both Linux and Windows. My background includes practical application of the Win32 API, network programming, and OpenSSL.
+                        </p>
+                        <p>
+                            Currently a student at the Faculty of Information Technology at CTU in Prague, I have a deep-rooted passion for cybersecurity, particularly in reverse engineering and operating system internals. I continuously hone my skills through academic study, hands-on projects, and Capture The Flag (CTF) competitions.
+                        </p>
+                    </div>
+                     <div class="w-full md:w-1/3 text-center">
+                        <div class="p-6 bg-gray-700/50 rounded-lg">
+                             <h3 class="text-lg font-semibold text-white mb-3">Education</h3>
+                             <p class="font-medium text-cyan-400">Bachelor's in Computer Science</p>
+                             <p class="text-sm text-gray-400 mb-2">Information Security Specialization</p>
+                             <p class="text-sm">Faculty of Information Technology, CTU in Prague</p>
+                             <p class="text-xs text-gray-500 mt-1">2023 - 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Technical Skills</h2>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Programming Languages -->
+                    <div class="glass-effect rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="code-2" class="w-8 h-8 text-cyan-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold text-white">Programming Languages</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><span class="font-semibold text-cyan-300">Advanced:</span> C++, C</li>
+                            <li><span class="font-semibold text-cyan-300">Intermediate:</span> Python, Bash, Assembly</li>
+                            <li><span class="font-semibold text-cyan-300">Fluent:</span> JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Technologies -->
+                    <div class="glass-effect rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="terminal-square" class="w-8 h-8 text-cyan-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold text-white">Tools & Technologies</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Git, CMake, Qt 6</li>
+                            <li>Linux, Win32 API, Network Programming</li>
+                            <li>Kubernetes, Terraform, Ansible</li>
+                             <li>PostgreSQL, MySQL</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cybersecurity -->
+                    <div class="glass-effect rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-cyan-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold text-white">Cybersecurity</h3>
+                        </div>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Web Security (OWASP)</li>
+                            <li>Penetration Testing</li>
+                            <li>Kali Linux, Burp Suite</li>
+                            <li>Cryptography</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Projects & Experience</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Project 1: Pen Test -->
+                    <div class="glass-effect rounded-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Penetration Test of CTU's Web App</h3>
+                        <p class="text-cyan-400 text-sm mb-4 font-medium">Professional Experience</p>
+                        <p class="text-gray-300 mb-4 flex-grow">Performed a security analysis of CTU's examination platform, LearnShell, using the OWASP WSTG methodology. Identified 8 vulnerabilities, including 2 critical flaws related to availability and authorization with CVSS scores over 9.0.</p>
+                        <div class="mt-auto">
+                            <p class="text-sm font-semibold text-white mb-2">Key Skills:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">OWASP</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Burp Suite</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Kali Linux</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Web Security</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: IoT Station -->
+                    <div class="glass-effect rounded-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">IoT Air Quality Monitoring Station</h3>
+                        <p class="text-cyan-400 text-sm mb-4 font-medium">Personal Project</p>
+                        <p class="text-gray-300 mb-4 flex-grow">Designed and implemented a modular indoor air quality analyzer using Arduino and ESP8266. The system collects sensor data (temperature, humidity, gas, dust) and sends it to a custom web server for real-time visualization.</p>
+                        <div class="mt-auto">
+                           <p class="text-sm font-semibold text-white mb-2">Key Skills:</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">C++</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Arduino</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">ESP8266</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Web Dev</span>
+                            </div>
+                            <a href="http://mitan.cz/air-station" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-white font-semibold transition-colors duration-300">
+                                View Project <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Time Utility -->
+                    <div class="glass-effect rounded-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Windows Time Query Utility</h3>
+                        <p class="text-cyan-400 text-sm mb-4 font-medium">Personal Project</p>
+                        <p class="text-gray-300 mb-4 flex-grow">A C++ application for Windows that retrieves system time in a custom format. Features a secure, multi-threaded custom TCP server for remote access and a user-friendly formatting system.</p>
+                        <div class="mt-auto">
+                             <p class="text-sm font-semibold text-white mb-2">Key Skills:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">C++</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Win32 API</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">TCP/IP</span>
+                                <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">Multi-threading</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="max-w-2xl mx-auto mb-8 text-lg">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <a href="mailto:mitanrob@proton.me" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition-all duration-300 w-full md:w-auto">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                        mitanrob@proton.me
+                    </a>
+                     <div class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-gray-700/60 w-full md:w-auto">
+                        <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
+                        +420 774 693 335
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-400">
+            <p>&copy; 2024 Robin Mitan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
