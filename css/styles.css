@@ -117,7 +117,7 @@ body {
 /* Hero box responsive width */
 @media (max-width: 768px) {
     .hero-box {
-        min-width: 400px; /* Increased minimum width on mobile for wider appearance */
+        min-width: 360px; /* Increased minimum width on mobile for wider appearance */
     }
 }
 
