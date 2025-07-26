@@ -40,7 +40,6 @@ body {
     position: relative; 
     overflow: hidden; 
     
-    
     background: 
         linear-gradient(
             135deg, 
@@ -75,4 +74,55 @@ body {
 .show-info.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Typing Animation Styles */
+.rolling-container {
+    display: inline-block;
+    position: relative;
+}
+
+.rolling-static {
+    color: #a855f7; /* purple-500 - purple color for '>' */
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5); /* purple glow */
+}
+
+.rolling-text {
+    color: #06b6d4; /* cyan-500 */
+    font-weight: 500;
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.4); /* cyan glow */
+}
+
+.rolling-cursor {
+    display: inline-block;
+    background-color: #06b6d4; /* cyan-500 */
+    width: 2px;
+    height: 1.2em;
+    margin-left: 2px;
+    animation: cursor-blink 1s infinite;
+    vertical-align: text-top;
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.6); /* cursor glow */
+}
+
+@keyframes cursor-blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Hero box responsive width */
+@media (max-width: 768px) {
+    .hero-box {
+        min-width: 400px; /* Increased minimum width on mobile for wider appearance */
+    }
+}
+
+@media (min-width: 769px) {
+    .hero-box {
+        min-width: 700px; /* Larger minimum width on desktop */
+    }
 }
