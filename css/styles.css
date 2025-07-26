@@ -65,3 +65,14 @@ body {
         background-position: 0% 50%;
     }
 }
+
+.show-info {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+        
+.show-info.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
