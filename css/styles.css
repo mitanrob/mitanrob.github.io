@@ -12,6 +12,272 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Enhanced Navigation Styles */
+header {
+    background: 
+        linear-gradient(
+            135deg, 
+            rgba(168, 85, 247, 0.03),  
+            rgba(56, 189, 248, 0.03),   
+            rgba(168, 85, 247, 0.03)   
+        ),
+        rgba(15, 23, 42, 0.65); /* More transparent base */
+    backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    background: 
+        linear-gradient(
+            135deg, 
+            rgba(168, 85, 247, 0.05),  
+            rgba(56, 189, 248, 0.05),   
+            rgba(168, 85, 247, 0.05)   
+        ),
+        rgba(15, 23, 42, 0.75); /* Slightly less transparent on hover */
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Logo/Brand Styling */
+header a[href="#"] {
+    position: relative;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+header a[href="#"]:hover {
+    color: #06b6d4;
+    transform: scale(1.05);
+    text-shadow: 0 0 25px rgba(6, 182, 212, 0.5);
+}
+
+/* Navigation Links */
+nav a {
+    position: relative;
+    color: #e2e8f0;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    background: transparent;
+    border: 1px solid transparent;
+    overflow: hidden;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #06b6d4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #06b6d4;
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+nav a:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Mobile Menu Button */
+#mobile-menu-button {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+#mobile-menu-button:hover {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+}
+
+#mobile-menu-button i {
+    transition: transform 0.3s ease;
+}
+
+#mobile-menu-button:hover i {
+    transform: rotate(90deg);
+}
+
+/* Mobile Menu */
+#mobile-menu {
+    background: 
+        linear-gradient(
+            135deg, 
+            rgba(15, 23, 42, 0.95),
+            rgba(30, 41, 59, 0.95)
+        );
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+#mobile-menu a {
+    position: relative;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+#mobile-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.1), transparent);
+    transition: width 0.3s ease;
+}
+
+#mobile-menu a:hover {
+    background: rgba(6, 182, 212, 0.08);
+    color: #06b6d4;
+    border-left-color: #06b6d4;
+    padding-left: 2rem;
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+#mobile-menu a:hover::before {
+    width: 100%;
+}
+
+/* Active Navigation State */
+nav a.active {
+    color: #06b6d4;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Active section shows same underline as hover */
+nav a.active::before {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #06b6d4);
+}
+
+/* Same hover animation for all buttons */
+nav a:hover::before,
+nav a.active:hover::before {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #06b6d4);
+}
+
+/* Smooth scroll behavior enhancement */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Additional glass morphism effects */
+@supports (backdrop-filter: blur(16px)) {
+    header {
+        backdrop-filter: blur(16px) saturate(180%);
+    }
+}
+
+/* Header scroll effect */
+header.scrolled {
+    background: 
+        linear-gradient(
+            135deg, 
+            rgba(168, 85, 247, 0.05),  
+            rgba(56, 189, 248, 0.05),   
+            rgba(168, 85, 247, 0.05)   
+        ),
+        rgba(15, 23, 42, 0.8); /* Slightly more opaque when scrolled */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Navigation link focus states for accessibility */
+nav a:focus {
+    outline: none;
+    color: #06b6d4;
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Only show underline on focus when also hovering */
+nav a:focus:hover::before {
+    width: 60%;
+    opacity: 0.8;
+}
+
+/* Loading animation for navigation */
+@keyframes nav-load {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+nav a {
+    animation: nav-load 0.5s ease forwards;
+    animation-delay: calc(var(--index) * 0.08s);
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+    header {
+        backdrop-filter: blur(12px) saturate(160%);
+    }
+    
+    #mobile-menu-button {
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* Additional mobile menu animations */
+#mobile-menu {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Subtle pulse effect for active states - removed */
+/* No longer needed since active state doesn't show underline permanently */
+
+/* Performance optimizations */
+header {
+    will-change: background;
+}
+
+nav a::before {
+    will-change: width;
+}
+
+/* Prevent layout shift during animations */
+nav {
+    contain: layout style;
+}
+
 #home {
     position: relative;
     overflow: hidden;
