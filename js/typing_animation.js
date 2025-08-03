@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const jobTitles = [
             'C++ Developer',
             'Cybersecurity Enthusiast', 
-            'Information Security Student',
+            'Infosec. Student',
             'Modern C++ Specialist'
         ];
         

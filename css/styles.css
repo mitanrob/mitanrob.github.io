@@ -383,7 +383,7 @@ nav {
 /* Hero box responsive width */
 @media (max-width: 768px) {
     .hero-box {
-        min-width: 360px; /* Increased minimum width on mobile for wider appearance */
+        min-width: 340px; /* Increased minimum width on mobile for wider appearance */
     }
 }
 
